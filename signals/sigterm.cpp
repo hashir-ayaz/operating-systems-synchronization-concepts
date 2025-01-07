@@ -1,16 +1,21 @@
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
+#include <iostream>
 using namespace std;
-void handle_sigterm(int sig) {
-    cout<<"Caught SIGTERM. Cleaning up before exiting...\n";
+void handle_sigterm(int sig)
+{
+    cout << "Caught SIGTERM. Cleaning up before exiting...\n";
     _exit(0);
 }
 
-int main() {
+int main()
+{
     signal(SIGTERM, handle_sigterm); // Register handler
-    while (1) {
-        cout<<"Running...\n";
+    while (1)
+    {
+        cout << "process id is " << getpid() << endl;
+        cout << "Running...\n";
         sleep(1);
     }
     return 0;
