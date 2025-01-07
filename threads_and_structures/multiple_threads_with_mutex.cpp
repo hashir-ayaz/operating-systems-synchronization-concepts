@@ -31,7 +31,7 @@ std::mutex my_mutex;
 void incrementCounter(shared_data &data)
 {
     // lock mutex first
-    std::lock_guard<std::mutex> lock(my_mutex);
+    std::unique_lock<std::mutex> lock(my_mutex);
 
     // increment counter
     data.counter++;
